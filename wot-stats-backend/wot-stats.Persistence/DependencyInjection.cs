@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using wot_stats.Application.Interfaces;
 using wot_stats.Domain;
+using wot_stats.Domain.Entities;
 
 namespace wot_stats.Persistence;
 

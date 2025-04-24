@@ -8,7 +8,6 @@ public class CreateRefreshTokenCommandValidator: AbstractValidator<CreateRefresh
     {
         RuleFor(x => x.IpAddress).NotEmpty().NotNull();
         RuleFor(x => x.ToLife).NotNull();
-        RuleFor(x => x.Token).NotEmpty().NotNull();
         RuleFor(x => x.UserId).NotEmpty().NotNull();
     }
 }

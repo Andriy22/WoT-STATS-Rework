@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>wot_stats.WebApi</RootNamespace>
+    <UserSecretsId>fdb0da3c-ed77-4338-9bb7-72722824149a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,9 +1,13 @@
+using System.Reflection;
 using FluentValidation.AspNetCore;
 using Scalar.AspNetCore;
 using Serilog;
 using wot_stats.Application;
+using wot_stats.Application.Common.Mappings;
+using wot_stats.Application.Interfaces;
 using wot_stats.Persistence;
 using wot_stats.WebApi.Logger;
+using wot_stats.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +19,14 @@ builder.Host.UseSerilog(LoggerConfig.GetLoggerConfiguration());
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
+
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddProfile(new AssemblyMappingProfile(typeof(IDataContext).Assembly));
+});
+
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);

@@ -10,7 +10,7 @@ public class GetRefreshTokenByTokenQueryHandler(IDataContext context, IMapper ma
 {
     public async Task<RefreshTokenDto> Handle(GetRefreshTokenByTokenQuery request, CancellationToken cancellationToken)
     {
-        var refreshToken = await context.RefreshTokens.SingleOrDefaultAsync(x => x.Token == request.Token);
+        var refreshToken = await context.RefreshTokens.SingleOrDefaultAsync(x => x.Token == request.Token, cancellationToken);
 
         if (refreshToken == null)
         {

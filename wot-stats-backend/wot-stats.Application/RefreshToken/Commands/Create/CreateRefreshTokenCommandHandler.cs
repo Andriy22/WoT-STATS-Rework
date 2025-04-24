@@ -18,7 +18,7 @@ public class CreateRefreshTokenCommandHandler(IDataContext context) : IRequestHa
             existingToken = await context.RefreshTokens.SingleOrDefaultAsync(x => x.Token == token, cancellationToken);
         }
 
-        var refreshToken = new Domain.RefreshToken
+        var refreshToken = new Domain.Entities.RefreshToken
         {
             CreatedAt = DateTime.UtcNow,
             IpAddress = request.IpAddress,
