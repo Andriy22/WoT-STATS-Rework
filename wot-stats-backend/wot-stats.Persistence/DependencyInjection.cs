@@ -14,7 +14,7 @@ public static class DependencyInjection
         services, IConfiguration configuration)
     {
         services.AddDbContext<DataContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), b => { b.EnableRetryOnFailure(); b.MigrationsAssembly("wot-stats.WebApi"); }));
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), b => { b.EnableRetryOnFailure(); b.MigrationsAssembly("wot-stats.Persistence"); }));
 
         services.AddDefaultIdentity<AppUser>()
             .AddRoles<IdentityRole>()

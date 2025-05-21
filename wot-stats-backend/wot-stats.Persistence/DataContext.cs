@@ -11,6 +11,12 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
     public new required DbSet<AppUser> Users { get; set; }
 
     public required DbSet<RefreshToken> RefreshTokens { get; set; }
+    
+    public required DbSet<Player> Players { get; set; }
+    
+    public required DbSet<PlayerStatistic> PayerStatistics { get; set; }
+    
+    public required DbSet<PlayerTank> PlayerTanks { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
